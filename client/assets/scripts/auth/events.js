@@ -34,10 +34,18 @@ const onChangePassword = function (event) {
     .catch(ui.changePasswordFailure)
 }
 
+const onSignOut = function (event) {
+  event.preventDefault()
+  api.signOut()
+    .then(ui.signOutSuccess)
+    .catch(ui.signOutFailure)
+}
+
 const addHandlers = () => {
   $('#user-signup').on('submit', onSignUp)
   $('#user-signin').on('submit', onSignIn)
   $('#user-changepwd').on('submit', onChangePassword)
+  $('#user-signout').on('submit', onSignOut)
 }
 
 module.exports = {
