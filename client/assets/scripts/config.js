@@ -2,7 +2,7 @@
 
 const config = {
   apiOrigins: {
-    development: 'https://localhost:4741',
+    development: 'http://localhost:4741',
     production: 'https://downtime1.herokuapp.com'
   }
 }
