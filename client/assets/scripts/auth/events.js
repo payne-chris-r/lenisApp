@@ -10,6 +10,8 @@ const onSignUp = function (event) {
   console.log('data is', data)
   api.signUp(data)
     .then(ui.signUpSuccess)
+    .then($('#user-signup input[type="text"]').val(''))
+    .then($('#user-signup input[type="password"]').val(''))
     .catch(ui.signUpFailure)
 }
 
