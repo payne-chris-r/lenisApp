@@ -5,9 +5,8 @@ const getFormFields = require('../../../lib/get-form-fields')
 const ui = require('./ui')
 
 const onSignUp = function (event) {
-  event.preventDefault() // prevents page from refreshing!!
+  event.preventDefault()
   const data = getFormFields(this)
-  console.log('data is', data)
   api.signUp(data)
     .then(ui.signUpSuccess)
     .then($('#user-signup input[type="text"]').val(''))
@@ -15,8 +14,20 @@ const onSignUp = function (event) {
     .catch(ui.signUpFailure)
 }
 
+const onSignIn = function (event) {
+  event.preventDefault()
+  const data = getFormFields(this)
+  console.log('data in events onsignin is ', data)
+  api.signUp(data)
+    .then(ui.signInSuccess)
+    .then($('#user-signin input[type="text"]').val(''))
+    .then($('#user-signin input[type="password"]').val(''))
+    .catch(ui.signInFailure)
+}
+
 const addHandlers = () => {
   $('#user-signup').on('submit', onSignUp)
+  $('#user-signin').on('submit', onSignIn)
 }
 
 module.exports = {

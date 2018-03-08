@@ -1,5 +1,7 @@
 'use strict'
 
+const store = require('../store')
+
 const signUpSuccess = function (data) {
   $('#signup-message').text('Sign-Up Successful!')
   $('#signup-message').css('background-color', 'green')
@@ -15,7 +17,8 @@ const signUpFailure = function (error) {
 const signInSuccess = function (data) {
   $('#signin-message').text('Sign-In Successful!')
   $('#signin-message').css('background-color', 'green')
-  console.log(data)
+  store.user = data.user
+  console.log('Data user in signin success is ', data.user)
 }
 
 const signInFailure = function (error) {
