@@ -39,11 +39,24 @@ const changePasswordFailure = function (error) {
   console.log(error)
 }
 
+const signOutSuccess = function () {
+  $('#signout-message').text('Successfully Signed Out')
+  $('#signout-message').css('background-color', 'green')
+}
+
+const signOutFailure = function (error) {
+  $('#signout-message').text('Sign Out Unsuccessful')
+  $('#signout-message').css('background-color', 'red')
+  console.log(error)
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
   signInFailure,
   signInSuccess,
   changePasswordSuccess,
-  changePasswordFailure
+  changePasswordFailure,
+  signOutSuccess,
+  signOutFailure
 }
