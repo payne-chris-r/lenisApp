@@ -17,7 +17,6 @@ const onSignUp = function (event) {
 const onSignIn = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
-  console.log('data in events onsignin is ', data)
   api.signIn(data)
     .then(ui.signInSuccess)
     .then($('#user-signin input[type="text"]').val(''))
@@ -25,9 +24,20 @@ const onSignIn = function (event) {
     .catch(ui.signInFailure)
 }
 
+const onChangePassword = function (event) {
+  event.preventDefault()
+  const data = getFormFields(this)
+  console.log('data in events on changepwd is ', data)
+  api.changePassword(data)
+    .then(ui.changePasswordSuccess)
+    .then($('#user-changepwd input[type="password"]').val(''))
+    .catch(ui.changePasswordFailure)
+}
+
 const addHandlers = () => {
   $('#user-signup').on('submit', onSignUp)
   $('#user-signin').on('submit', onSignIn)
+  $('#user-changepwd').on('submit', onChangePassword)
 }
 
 module.exports = {
