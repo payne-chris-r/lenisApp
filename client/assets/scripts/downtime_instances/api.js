@@ -26,7 +26,21 @@ const getAllDowntime = function () {
   })
 }
 
+const updateDowntime = function (data) {
+  console.log('Data in updateDowntime is ', data)
+  return $.ajax({
+    url: config.apiOrigin + '/downtime_instances' + store.user.downtime_instance.id,
+    method: 'PATCH',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
 module.exports = {
   createDowntime,
-  getAllDowntime
+  getAllDowntime,
+  updateDowntime
 }
