@@ -9,7 +9,7 @@ const onCreateDowntime = function (event) {
   const data = getFormFields(this)
   api.createDowntime(data)
     .then(ui.createDowntimeSuccess)
-    .then($('#user-signup input[type="text"]').val(''))
+    .then($('#user-create input[type="text"]').val(''))
     .catch(ui.createDowntimeFailure)
 }
 
