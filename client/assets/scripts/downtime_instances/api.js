@@ -3,9 +3,9 @@
 const config = require('../config')
 const store = require('../store')
 
-const signUp = function (data) {
+const createDowntime = function (data) {
   return $.ajax({
-    url: config.apiOrigin + '/sign-up',
+    url: config.apiOrigin + '/downtime_instances',
     method: 'POST',
     headers: {
       contentType: 'application/json'
@@ -15,5 +15,5 @@ const signUp = function (data) {
 }
 
 module.exports = {
-  signUp
+  createDowntime
 }
