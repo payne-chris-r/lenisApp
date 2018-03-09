@@ -29,7 +29,7 @@ const getAllDowntime = function () {
 const updateDowntime = function (data) {
   console.log('Data in updateDowntime is ', data)
   return $.ajax({
-    url: config.apiOrigin + '/downtime_instances' + store.user.downtime_instance.id,
+    url: config.apiOrigin + '/downtime_instances/' + data.downtime_instance.id,
     method: 'PATCH',
     headers: {
       contentType: 'application/json',

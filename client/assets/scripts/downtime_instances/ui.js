@@ -26,12 +26,12 @@ const getAllDowntimeFailure = function (error) {
 }
 
 const updateDowntimeSuccess = function () {
-  $('#getall-message').text('Downtime Instances Received')
+  $('#getall-message').text('Instance Updated Successfully')
   $('#getall-message').css('background-color', 'green')
 }
 
 const updateDowntimeFailure = function (error) {
-  $('#update-message').text('Error On Sign-In')
+  $('#update-message').text('Error on Update')
   $('#update-message').css('background-color', 'red')
   console.log(error)
 }
