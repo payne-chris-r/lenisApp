@@ -15,8 +15,7 @@ const onCreateDowntime = function (event) {
 
 const onGetAllDowntime = function (event) {
   event.preventDefault()
-  const data = getFormFields(this)
-  api.getAllDowntime(data)
+  api.getAllDowntime()
     .then(ui.getAllDowntimeSuccess)
     .catch(ui.getAllDowntimeFailure)
 }

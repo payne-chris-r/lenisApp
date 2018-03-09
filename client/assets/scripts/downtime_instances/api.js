@@ -15,15 +15,14 @@ const createDowntime = function (data) {
   })
 }
 
-const getAllDowntime = function (data) {
+const getAllDowntime = function () {
   return $.ajax({
     url: config.apiOrigin + '/downtime_instances',
     method: 'GET',
     headers: {
       contentType: 'application/json',
       Authorization: 'Token token=' + store.user.token
-    },
-    data
+    }
   })
 }
 
