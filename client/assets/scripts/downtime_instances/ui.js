@@ -14,7 +14,20 @@ const createDowntimeFailure = function (error) {
   console.log(error)
 }
 
+const getAllDowntimeSuccess = function (data) {
+  $('#signin-message').text('Your downtime instances are ', data)
+  $('#signin-message').css('background-color', 'green')
+}
+
+const getAllDowntimeFailure = function (error) {
+  $('#signin-message').text('Error On Sign-In')
+  $('#signin-message').css('background-color', 'red')
+  console.log(error)
+}
+
 module.exports = {
   createDowntimeSuccess,
-  createDowntimeFailure
+  createDowntimeFailure,
+  getAllDowntimeSuccess,
+  getAllDowntimeFailure
 }
