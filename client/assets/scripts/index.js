@@ -2,6 +2,7 @@
 const setAPIOrigin = require('../../lib/set-api-origin')
 const config = require('./config')
 const authEvents = require('./auth/events')
+const downTimeEvents = require('./downtime_instances/events')
 
 $(() => {
   setAPIOrigin(location, config)
@@ -15,4 +16,5 @@ $(() => {
 
 $(() => {
   authEvents.addHandlers()
+  downTimeEvents.addHandlers()
 })
