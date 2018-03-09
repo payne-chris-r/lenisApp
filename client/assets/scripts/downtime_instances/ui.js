@@ -14,14 +14,25 @@ const createDowntimeFailure = function (error) {
   console.log(error)
 }
 
-const getAllDowntimeSuccess = function (data) {
-  $('#getall-message').text('Your downtime instances are ', data)
+const getAllDowntimeSuccess = function () {
+  $('#getall-message').text('Downtime Instances Received')
   $('#getall-message').css('background-color', 'green')
 }
 
 const getAllDowntimeFailure = function (error) {
-  $('#getall-message').text('Error On Sign-In')
+  $('#getall-message').text('Error Retrieving Instances')
   $('#getall-message').css('background-color', 'red')
+  console.log(error)
+}
+
+const updateDowntimeSuccess = function () {
+  $('#getall-message').text('Downtime Instances Received')
+  $('#getall-message').css('background-color', 'green')
+}
+
+const updateDowntimeFailure = function (error) {
+  $('#update-message').text('Error On Sign-In')
+  $('#update-message').css('background-color', 'red')
   console.log(error)
 }
 
@@ -29,5 +40,7 @@ module.exports = {
   createDowntimeSuccess,
   createDowntimeFailure,
   getAllDowntimeSuccess,
-  getAllDowntimeFailure
+  getAllDowntimeFailure,
+  updateDowntimeSuccess,
+  updateDowntimeFailure
 }
