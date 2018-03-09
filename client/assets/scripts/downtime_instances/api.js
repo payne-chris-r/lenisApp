@@ -1,7 +1,7 @@
 'use strict'
 
 const config = require('../config')
-const store = require('../store')
+// const store = require('../store')
 
 const createDowntime = function (data) {
   return $.ajax({
