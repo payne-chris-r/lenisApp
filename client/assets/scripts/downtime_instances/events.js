@@ -20,9 +20,20 @@ const onGetAllDowntime = function (event) {
     .catch(ui.getAllDowntimeFailure)
 }
 
+const onUpdateDowntime = function (event) {
+  event.preventDefault()
+  const data = getFormFields(this)
+  console.log('data in events on onUpdateDowntime is ', data)
+  api.updateDowntime(data)
+    .then(ui.updateDowntimeSuccess)
+    .then($('#update_downtime input[type="text"]').val(''))
+    .catch(ui.updateDowntimeFailure)
+}
+
 const addHandlers = () => {
   $('#create-downtime').on('submit', onCreateDowntime)
   $('#get-alldowntime').on('submit', onGetAllDowntime)
+  $('#update-downtime').on('submit', onUpdateDowntime)
 }
 
 module.exports = {
