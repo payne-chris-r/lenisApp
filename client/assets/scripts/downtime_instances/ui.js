@@ -15,13 +15,13 @@ const createDowntimeFailure = function (error) {
 }
 
 const getAllDowntimeSuccess = function (data) {
-  $('#signin-message').text('Your downtime instances are ', data)
-  $('#signin-message').css('background-color', 'green')
+  $('#getall-message').text('Your downtime instances are ', data)
+  $('#getall-message').css('background-color', 'green')
 }
 
 const getAllDowntimeFailure = function (error) {
-  $('#signin-message').text('Error On Sign-In')
-  $('#signin-message').css('background-color', 'red')
+  $('#getall-message').text('Error On Sign-In')
+  $('#getall-message').css('background-color', 'red')
   console.log(error)
 }
 
