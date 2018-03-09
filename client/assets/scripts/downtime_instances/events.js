@@ -7,9 +7,10 @@ const ui = require('./ui')
 const onCreateDowntime = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
+  console.log('Data for create downtime in events is ', data)
   api.createDowntime(data)
     .then(ui.createDowntimeSuccess)
-    .then($('#user-create input[type="text"]').val(''))
+    .then($('#create-downtime input[type="text"]').val(''))
     .catch(ui.createDowntimeFailure)
 }
 
