@@ -27,10 +27,9 @@ const signInFailure = function (error) {
   console.log(error)
 }
 
-const changePasswordSuccess = function (data) {
+const changePasswordSuccess = function () {
   $('#changepwd-message').text('Successfully Changed Password!')
   $('#changepwd-message').css('background-color', 'green')
-  console.log('Data for ui changepwd is ', data)
 }
 
 const changePasswordFailure = function (error) {
