@@ -1,0 +1,34 @@
+{{#each downtime_instances as |downtime_instance|}}
+
+  <!-- {{> partial}} -->
+  <!--USE HANDLEBARS FOR LAYOUT-where jQuery, Javascript, etc. -->
+  <!-- Use it to make a truly single single-page app, hide and format!!-->
+  <!-- Helps you do the same thing in HTML to every element via EACH -->
+ <!-- Developers, why are we using data-id and not just id? -->
+<ul data-id="{{downtime_instance.id}}">
+  <li>ID: {{downtime_instance.id}}</li>
+  <li>Date:
+    {{#if downtime_instance.date}}
+      {{downtime_instance.date}}
+    {{else}}
+      No date provided.
+    {{/if}}
+  </li>
+  <li>Time:
+    {{#if downtime_instance.time}}
+      {{downtime_instance.time}}
+    {{else}}
+      No time provided.
+    {{/if}}
+  </li>
+  <li>Activity:
+    {{#if downtime_instance.activity}}
+      {{downtime_instance.activity}}
+    {{else}}
+      No activity provided.
+    {{/if}}
+  </li>
+  <li><button class="remove">Remove</button></li>
+</ul>
+
+{{/each}}
