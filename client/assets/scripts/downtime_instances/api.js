@@ -27,7 +27,6 @@ const getAllDowntime = function () {
 }
 
 const updateDowntime = function (data) {
-  console.log('Data in updateDowntime is ', data)
   return $.ajax({
     url: config.apiOrigin + '/downtime_instances/' + data.downtime_instance.id,
     method: 'PATCH',
@@ -40,7 +39,6 @@ const updateDowntime = function (data) {
 }
 
 const deleteInstance = function (data) {
-  console.log('Data at deleteInstance is ', data)
   return $.ajax({
     url: config.apiOrigin + '/downtime_instances/' + data.downtime_instance.id,
     method: 'DELETE',

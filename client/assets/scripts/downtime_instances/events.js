@@ -23,19 +23,18 @@ const onGetAllDowntime = function (event) {
 const onUpdateDowntime = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
-  console.log('data in events on onUpdateDowntime is ', data)
   api.updateDowntime(data)
     .then(ui.updateDowntimeSuccess)
-    .then($('#update_downtime input[type="text"]').val(''))
+    .then($('#update-downtime input[type="text"]').val(''))
     .catch(ui.updateDowntimeFailure)
 }
 
 const onDeleteDowntime = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
-  console.log('data in events on onDeleteDowntime is ', data)
   api.deleteInstance(data)
     .then(ui.deleteDowntimeSuccess)
+    .then($('#delete-downtime input[type="text"]').val(''))
     .catch(ui.deleteDowntimeFailure)
 }
 
