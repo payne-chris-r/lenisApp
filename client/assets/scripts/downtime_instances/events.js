@@ -30,10 +30,18 @@ const onUpdateDowntime = function (event) {
     .catch(ui.updateDowntimeFailure)
 }
 
+const onDeleteDowntime = function (event) {
+  event.preventDefault()
+  api.deleteInstance()
+    .then(ui.deleteDowntimeSuccess)
+    .catch(ui.deleteDowntimeFailure)
+}
+
 const addHandlers = () => {
   $('#create-downtime').on('submit', onCreateDowntime)
   $('#get-alldowntime').on('submit', onGetAllDowntime)
   $('#update-downtime').on('submit', onUpdateDowntime)
+  $('#delete-downtime').on('submit', onDeleteDowntime)
 }
 
 module.exports = {

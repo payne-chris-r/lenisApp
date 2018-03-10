@@ -37,13 +37,13 @@ const updateDowntimeFailure = function (error) {
 }
 
 const deleteDowntimeSuccess = function () {
-  $('#update-message').text('Instance Deleted Successfully')
-  $('#update-message').css('background-color', 'green')
+  $('#delete-message').text('Instance Deleted Successfully')
+  $('#delete-message').css('background-color', 'green')
 }
 
 const deleteDowntimeFailure = function (error) {
-  $('#update-message').text('Error on Delete')
-  $('#update-message').css('background-color', 'red')
+  $('#delete-message').text('Error on Delete')
+  $('#delete-message').css('background-color', 'red')
   console.log(error)
 }
 
