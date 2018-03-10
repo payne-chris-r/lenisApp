@@ -36,11 +36,24 @@ const updateDowntimeFailure = function (error) {
   console.log(error)
 }
 
+const deleteDowntimeSuccess = function () {
+  $('#update-message').text('Instance Deleted Successfully')
+  $('#update-message').css('background-color', 'green')
+}
+
+const deleteDowntimeFailure = function (error) {
+  $('#update-message').text('Error on Delete')
+  $('#update-message').css('background-color', 'red')
+  console.log(error)
+}
+
 module.exports = {
   createDowntimeSuccess,
   createDowntimeFailure,
   getAllDowntimeSuccess,
   getAllDowntimeFailure,
   updateDowntimeSuccess,
-  updateDowntimeFailure
+  updateDowntimeFailure,
+  deleteDowntimeSuccess,
+  deleteDowntimeFailure
 }
