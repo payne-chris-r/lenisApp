@@ -12,14 +12,92 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body class="container-fluid">
-      <h1>Example</h1>
-
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-      minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-      ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-      est laborum.</p>
+      <div>
+        <p id="signup-message"></p>
+        <form id="user-signup">
+          <fieldset>
+            <legend>Sign Up</legend>
+              <input type="text" name="credentials[email]" placeholder="Email">
+              <input type="password" name="credentials[password]" placeholder="Password">
+              <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+              <input type="submit" value="Sign Up">
+          </fieldset>
+        </form>
+      </div>
+      <div>
+        <p id="signin-message"></p>
+        <form id="user-signin">
+          <fieldset>
+            <legend>Sign In</legend>
+              <input type="text" name="credentials[email]" placeholder="Email">
+              <input type="password" name="credentials[password]" placeholder="Password">
+              <input type="submit" value="Sign In">
+          </fieldset>
+        </form>
+      </div>
+      <div>
+        <p id="changepwd-message"></p>
+        <form id="user-changepwd">
+          <fieldset>
+            <legend>Change Password</legend>
+              <input type="password" name="passwords[old]" placeholder="Old Password">
+              <input type="password" name="passwords[new]" placeholder="New Password">
+              <input type="submit" value="Change Password">
+          </fieldset>
+        </form>
+      </div>
+      <div>
+        <p id="signout-message"></p>
+        <form id="user-signout">
+          <fieldset>
+            <legend>Sign Out</legend>
+              <input type="submit" value="Sign Out">
+          </fieldset>
+        </form>
+      </div>
+      <div>
+        <p id="create-message"></p>
+        <form id="create-downtime">
+          <fieldset>
+            <legend>Log Downtime</legend>
+              <input type="text" name="downtime_instance[date]" placeholder="Date">
+              <input type="text" name="downtime_instance[time]" placeholder="Time">
+              <input type="text" name="downtime_instance[activity]" placeholder="Activity">
+              <input type="submit" value="Log My Downtime">
+          </fieldset>
+        </form>
+      </div>
+      <div>
+        <p id="getall-message"></p>
+        <form id="get-alldowntime">
+          <fieldset>
+            <legend>Get All My Downtimes</legend>
+              <input type="submit" value="Get All">
+          </fieldset>
+        </form>
+      </div>
+      <div>
+        <p id="update-message"></p>
+        <form id="update-downtime">
+          <fieldset>
+            <legend>Update Downtime</legend>
+              <input type="text" name="downtime_instance[id]" placeholder="Instance ID">
+              <input type="text" name="downtime_instance[date]" placeholder="Date">
+              <input type="text" name="downtime_instance[time]" placeholder="Time">
+              <input type="text" name="downtime_instance[activity]" placeholder="Activity">
+              <input type="submit" value="Update My Downtime">
+          </fieldset>
+        </form>
+      </div>
+      <div>
+        <p id="delete-message"></p>
+        <form id="delete-downtime">
+          <fieldset>
+            <legend>Delete Downtime Occurance</legend>
+              <input type="text" name="downtime_instance[id]" placeholder="Instance ID">
+              <input type="submit" value="Delete">
+          </fieldset>
+        </form>
+      </div>
     </body>
 </html>
