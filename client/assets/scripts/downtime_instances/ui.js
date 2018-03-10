@@ -1,11 +1,12 @@
 'use strict'
 
-// const store = require('../store')
+const store = require('../store')
 
 const createDowntimeSuccess = function (data) {
   $('#create-message').text('Created New Downtime!')
   $('#create-message').css('background-color', 'green')
-  console.log('Create downtime ui data is ', data)
+  store.downtime_instance = data.downtime_instance
+  console.log('Create downtime ui data.downtime_instance is ', data.downtime_instance)
 }
 
 const createDowntimeFailure = function (error) {
@@ -25,7 +26,7 @@ const getAllDowntimeFailure = function (error) {
   console.log(error)
 }
 
-const updateDowntimeSuccess = function () {
+const updateDowntimeSuccess = function (data) {
   $('#update-message').text('Instance Updated Successfully')
   $('#update-message').css('background-color', 'green')
 }

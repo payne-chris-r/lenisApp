@@ -39,9 +39,10 @@ const updateDowntime = function (data) {
   })
 }
 
-const deleteInstance = function () {
+const deleteInstance = function (data) {
+  console.log('Data in deleteInstance is ', data)
   return $.ajax({
-    url: config.apiOrigin + '/downtime_instances/',
+    url: config.apiOrigin + '/downtime_instances/' + data.downtime_instance.id,
     method: 'DELETE',
     headers: {
       Authorization: 'Token token=' + store.user.token
