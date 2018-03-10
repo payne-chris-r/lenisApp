@@ -26,8 +26,8 @@ const getAllDowntimeFailure = function (error) {
 }
 
 const updateDowntimeSuccess = function () {
-  $('#getall-message').text('Instance Updated Successfully')
-  $('#getall-message').css('background-color', 'green')
+  $('#update-message').text('Instance Updated Successfully')
+  $('#update-message').css('background-color', 'green')
 }
 
 const updateDowntimeFailure = function (error) {

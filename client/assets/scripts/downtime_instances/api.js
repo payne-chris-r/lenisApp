@@ -39,8 +39,19 @@ const updateDowntime = function (data) {
   })
 }
 
+const deleteInstance = function () {
+  return $.ajax({
+    url: config.apiOrigin + '/downtime_instances/',
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   createDowntime,
   getAllDowntime,
-  updateDowntime
+  updateDowntime,
+  deleteInstance
 }
