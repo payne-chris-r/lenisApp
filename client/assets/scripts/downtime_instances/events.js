@@ -32,7 +32,9 @@ const onUpdateDowntime = function (event) {
 
 const onDeleteDowntime = function (event) {
   event.preventDefault()
-  api.deleteInstance()
+  const data = getFormFields(this)
+  console.log('data in events on onDeleteDowntime is ', data)
+  api.deleteInstance(data)
     .then(ui.deleteDowntimeSuccess)
     .catch(ui.deleteDowntimeFailure)
 }
