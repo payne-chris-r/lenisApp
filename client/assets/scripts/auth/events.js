@@ -21,6 +21,8 @@ const onSignIn = function (event) {
     .then(ui.signInSuccess)
     .then($('#user-signin input[type="text"]').val(''))
     .then($('#user-signin input[type="password"]').val(''))
+    .then($('#before-signinauth').hide())
+    .then($('#after-signinauth').show())
     .catch(ui.signInFailure)
 }
 

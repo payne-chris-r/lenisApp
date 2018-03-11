@@ -17,4 +17,5 @@ $(() => {
 $(() => {
   authEvents.addHandlers()
   downTimeEvents.addHandlers()
+  $('#after-signinauth').hide()
 })
