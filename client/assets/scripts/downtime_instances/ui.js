@@ -1,6 +1,7 @@
 'use strict'
 
 const store = require('../store')
+const showInstanceTemplate = require('../templates/downtime_instance-listing.handlebars')
 
 const createDowntimeSuccess = function (data) {
   $('#create-message').text('Created New Downtime!')
@@ -19,6 +20,8 @@ const getMyDowntimeSuccess = function (data) {
   $('#get-message').css('background-color', 'green')
   store.downtime_instance = data.downtime_instance
   console.log('Data downtime-instance at getMyDowntimeSuccess is ', data.downtime_instance)
+  const showInstanceHtml = showInstanceTemplate({ downtime_instance: data.downtime_instance })
+  $('.downtime-content').append(showInstanceHtml)
 }
 
 const getMyDowntimeFailure = function (error) {
