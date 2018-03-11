@@ -24,7 +24,7 @@ const onGetMyDowntime = function (event) {
 
 const onGetAllDowntime = function (event) {
   event.preventDefault()
-  api.getMyDowntime()
+  api.getAllUserDowntimes()
     .then(ui.getAllDowntimeSuccess)
     .catch(ui.getAllDowntimeFailure)
 }

@@ -33,9 +33,9 @@ const getMyDowntimeFailure = function (error) {
 const getAllDowntimeSuccess = function (data) {
   $('#get-message').text('All Downtime Instances Received')
   $('#get-message').css('background-color', 'green')
-  store.downtime_instance = data.downtime_instance
-  const showInstanceAllHtml = showInstanceAllTemplate({ downtime_instance: data.downtime_instance })
-  $('.downtime-content').append(showInstanceAllHtml)
+  console.log('data in getAllDowntimeSuccess events is ', data)
+  const showInstanceAllHtml = showInstanceAllTemplate({ downtime_instances: data.downtime_instances })
+  $('.alldowntime-content').append(showInstanceAllHtml)
 }
 
 const getAllDowntimeFailure = function (error) {

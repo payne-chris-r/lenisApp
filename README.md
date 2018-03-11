@@ -126,4 +126,6 @@ by discovering that I needed to store and retrieve my data in a different place
 than how I'd been trying to do it.  I'm learning!
 
 Started to study Handlebars more thoroughly; I'm determined to use it in my
-project in some small capacity.
+project in some small capacity.  Wound up getting a breakthrough support from
+Keiko and discovered that I can actually use it very effectively to transmit
+server-side data to my users!
