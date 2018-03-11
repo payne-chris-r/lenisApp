@@ -2,6 +2,7 @@
 
 const store = require('../store')
 const showInstanceTemplate = require('../templates/downtime_instance-listing.handlebars')
+const showInstanceAllTemplate = require('../templates/downtime_instance-all.handlebars')
 
 const createDowntimeSuccess = function (data) {
   $('#create-message').text('Created New Downtime!')
@@ -24,6 +25,20 @@ const getMyDowntimeSuccess = function (data) {
 }
 
 const getMyDowntimeFailure = function (error) {
+  $('#get-message').text('Error Retrieving Instance')
+  $('#get-message').css('background-color', 'red')
+  console.log(error)
+}
+
+const getAllDowntimeSuccess = function (data) {
+  $('#get-message').text('All Downtime Instances Received')
+  $('#get-message').css('background-color', 'green')
+  store.downtime_instance = data.downtime_instance
+  const showInstanceAllHtml = showInstanceAllTemplate({ downtime_instance: data.downtime_instance })
+  $('.downtime-content').append(showInstanceAllHtml)
+}
+
+const getAllDowntimeFailure = function (error) {
   $('#get-message').text('Error Retrieving Instance')
   $('#get-message').css('background-color', 'red')
   console.log(error)
@@ -56,6 +71,8 @@ module.exports = {
   createDowntimeFailure,
   getMyDowntimeSuccess,
   getMyDowntimeFailure,
+  getAllDowntimeSuccess,
+  getAllDowntimeFailure,
   updateDowntimeSuccess,
   updateDowntimeFailure,
   deleteDowntimeSuccess,
