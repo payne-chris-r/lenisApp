@@ -1,0 +1,16 @@
+{{#each downtime_instances as |downtime_instance|}}
+
+<div data-id="{{downtime_instance.id}}">
+  <h3>Downtime Instance #{{downtime_instance.id}}</h3>
+  <p>Date: {{downtime_instance.date}}</p>
+  <p>Time: {{downtime_instance.time}}</p>
+  <p>
+    {{#if downtime_instance.activity}}
+      Activity: {{downtime_instance.activity}}
+    {{else}}
+      No activity recorded.  We assume you were fighting aliens.
+    {{/if}}
+  </p>
+</div>
+
+{{/each}}

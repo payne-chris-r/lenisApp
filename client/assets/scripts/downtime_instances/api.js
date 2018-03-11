@@ -27,6 +27,17 @@ const getMyDowntime = function (data) {
   })
 }
 
+const getAllUserDowntimes = function () {
+  return $.ajax({
+    url: config.apiOrigin + '/downtime_instances',
+    method: 'GET',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 const updateDowntime = function (data) {
   return $.ajax({
     url: config.apiOrigin + '/downtime_instances/' + data.downtime_instance.id,
@@ -52,6 +63,7 @@ const deleteInstance = function (data) {
 module.exports = {
   createDowntime,
   getMyDowntime,
+  getAllUserDowntimes,
   updateDowntime,
   deleteInstance
 }

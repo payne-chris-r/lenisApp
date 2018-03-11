@@ -19,7 +19,6 @@ const getMyDowntimeSuccess = function (data) {
   $('#get-message').text('Downtime Instance Received')
   $('#get-message').css('background-color', 'green')
   store.downtime_instance = data.downtime_instance
-  console.log('Data downtime-instance at getMyDowntimeSuccess is ', data.downtime_instance)
   const showInstanceHtml = showInstanceTemplate({ downtime_instance: data.downtime_instance })
   $('.downtime-content').append(showInstanceHtml)
 }

@@ -18,7 +18,6 @@ const signInSuccess = function (data) {
   $('#after-signinauth-message').text('Sign-In Successful!')
   $('#after-signinauth-message').css('background-color', 'green')
   store.user = data.user
-  console.log('Data user in signin success is ', data.user)
 }
 
 const signInFailure = function (error) {

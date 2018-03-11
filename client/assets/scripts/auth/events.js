@@ -29,7 +29,6 @@ const onSignIn = function (event) {
 const onChangePassword = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
-  console.log('data in events on changepwd is ', data)
   api.changePassword(data)
     .then(ui.changePasswordSuccess)
     .then($('#user-changepwd input[type="password"]').val(''))
