@@ -1,6 +1,7 @@
 'use strict'
 
 const store = require('../store')
+const showAllDowntimeInstances = require('../templates/hedowntime_instance-listing.handlebars')
 
 const createDowntimeSuccess = function (data) {
   $('#create-message').text('Created New Downtime!')
@@ -23,6 +24,16 @@ const getAllDowntimeFailure = function (error) {
   $('#getall-message').text('Error Retrieving Instances')
   $('#getall-message').css('background-color', 'red')
   console.log(error)
+}
+
+const getDowntimeInstancesSuccess = (data) => {
+  console.log(data)
+  const downtimeInstancesHtml = showAllDowntimeInstances({ downtime_instances: data.downtime_instances })
+  $('.content').append(downtimeInstancesHtml)
+}
+
+const failure = (error) => {
+  console.error(error)
 }
 
 const updateDowntimeSuccess = function (data) {
@@ -55,5 +66,7 @@ module.exports = {
   updateDowntimeSuccess,
   updateDowntimeFailure,
   deleteDowntimeSuccess,
-  deleteDowntimeFailure
+  deleteDowntimeFailure,
+  getDowntimeInstancesSuccess,
+  failure
 }
