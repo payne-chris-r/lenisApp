@@ -3,49 +3,48 @@
 const store = require('../store')
 
 const signUpSuccess = function (data) {
-  $('#signup-message').text('Sign-Up Successful!')
-  $('#signup-message').css('background-color', 'green')
+  $('#before-signinauth-message').text('Sign-Up Successful!')
+  $('#before-signinauth-message').css('background-color', 'green')
   console.log(data)
 }
 
 const signUpFailure = function (error) {
-  $('#signup-message').text('Error On Sign-Up')
-  $('#signup-message').css('background-color', 'red')
+  $('#before-signinauth-message').text('Error On Sign-Up')
+  $('#before-signinauth-message').css('background-color', 'red')
   console.log(error)
 }
 
 const signInSuccess = function (data) {
-  $('#signin-message').text('Sign-In Successful!')
-  $('#signin-message').css('background-color', 'green')
+  $('#after-signinauth-message').text('Sign-In Successful!')
+  $('#after-signinauth-message').css('background-color', 'green')
   store.user = data.user
-  console.log('Data user in signin success is ', data.user)
 }
 
 const signInFailure = function (error) {
-  $('#signin-message').text('Error On Sign-In')
-  $('#signin-message').css('background-color', 'red')
+  $('#after-signinauth-message').text('Error On Sign-In')
+  $('#after-signinauth-message').css('background-color', 'red')
   console.log(error)
 }
 
 const changePasswordSuccess = function () {
-  $('#changepwd-message').text('Successfully Changed Password!')
-  $('#changepwd-message').css('background-color', 'green')
+  $('#after-signinauth-message').text('Successfully Changed Password!')
+  $('#after-signinauth-message').css('background-color', 'green')
 }
 
 const changePasswordFailure = function (error) {
-  $('#changepwd-message').text('Password Change Unsuccessful')
-  $('#changepwd-message').css('background-color', 'red')
+  $('#after-signinauth-message').text('Password Change Unsuccessful')
+  $('#after-signinauth-message').css('background-color', 'red')
   console.log(error)
 }
 
 const signOutSuccess = function () {
-  $('#signout-message').text('Successfully Signed Out')
-  $('#signout-message').css('background-color', 'green')
+  $('#before-signinauth-message').text('Successfully Signed Out')
+  $('#before-signinauth-message').css('background-color', 'green')
 }
 
 const signOutFailure = function (error) {
-  $('#signout-message').text('Sign Out Unsuccessful')
-  $('#signout-message').css('background-color', 'red')
+  $('#before-signinauth-message').text('Sign Out Unsuccessful')
+  $('#before-signinauth-message').css('background-color', 'red')
   console.log(error)
 }
 

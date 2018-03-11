@@ -1,6 +1,8 @@
 'use strict'
 
 const store = require('../store')
+const showInstanceTemplate = require('../templates/downtime_instance-listing.handlebars')
+const showInstanceAllTemplate = require('../templates/downtime_instance-all.handlebars')
 
 const createDowntimeSuccess = function (data) {
   $('#create-message').text('Created New Downtime!')
@@ -14,14 +16,31 @@ const createDowntimeFailure = function (error) {
   console.log(error)
 }
 
-const getAllDowntimeSuccess = function () {
-  $('#getall-message').text('Downtime Instances Received')
-  $('#getall-message').css('background-color', 'green')
+const getMyDowntimeSuccess = function (data) {
+  $('#get-message').text('Downtime Instance Received')
+  $('#get-message').css('background-color', 'green')
+  store.downtime_instance = data.downtime_instance
+  const showInstanceHtml = showInstanceTemplate({ downtime_instance: data.downtime_instance })
+  $('.downtime-content').append(showInstanceHtml)
+}
+
+const getMyDowntimeFailure = function (error) {
+  $('#get-message').text('Error Retrieving Instance')
+  $('#get-message').css('background-color', 'red')
+  console.log(error)
+}
+
+const getAllDowntimeSuccess = function (data) {
+  $('#get-message').text('All Downtime Instances Received')
+  $('#get-message').css('background-color', 'green')
+  console.log('data in getAllDowntimeSuccess events is ', data)
+  const showInstanceAllHtml = showInstanceAllTemplate({ downtime_instances: data.downtime_instances })
+  $('.alldowntime-content').append(showInstanceAllHtml)
 }
 
 const getAllDowntimeFailure = function (error) {
-  $('#getall-message').text('Error Retrieving Instances')
-  $('#getall-message').css('background-color', 'red')
+  $('#get-message').text('Error Retrieving Instance')
+  $('#get-message').css('background-color', 'red')
   console.log(error)
 }
 
@@ -50,6 +69,8 @@ const deleteDowntimeFailure = function (error) {
 module.exports = {
   createDowntimeSuccess,
   createDowntimeFailure,
+  getMyDowntimeSuccess,
+  getMyDowntimeFailure,
   getAllDowntimeSuccess,
   getAllDowntimeFailure,
   updateDowntimeSuccess,

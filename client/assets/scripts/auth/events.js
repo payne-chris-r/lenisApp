@@ -21,13 +21,14 @@ const onSignIn = function (event) {
     .then(ui.signInSuccess)
     .then($('#user-signin input[type="text"]').val(''))
     .then($('#user-signin input[type="password"]').val(''))
+    .then($('#before-signinauth').hide())
+    .then($('#after-signinauth').show())
     .catch(ui.signInFailure)
 }
 
 const onChangePassword = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
-  console.log('data in events on changepwd is ', data)
   api.changePassword(data)
     .then(ui.changePasswordSuccess)
     .then($('#user-changepwd input[type="password"]').val(''))
@@ -38,6 +39,8 @@ const onSignOut = function (event) {
   event.preventDefault()
   api.signOut()
     .then(ui.signOutSuccess)
+    .then($('#before-signinauth').show())
+    .then($('#after-signinauth').hide())
     .catch(ui.signOutFailure)
 }
 

@@ -1,0 +1,22 @@
+
+<!--data.downtime_instance.id
+    data.downtime_instance.activity
+    data.downtime_instance.date
+    data.downtime_instance.time
+-->
+  <!--USE HANDLEBARS FOR LAYOUT-where jQuery, Javascript, etc. -->
+  <!-- Use it to make a truly single single-page app, hide and format!!-->
+  <!-- Helps you do the same thing in HTML to every element via EACH -->
+ <!-- Developers, why are we using data-id and not just id? -->
+<div data-id="{{downtime_instance.id}}">
+  <h3>Downtime Instance #{{downtime_instance.id}}</h3>
+  <p>Date: {{downtime_instance.date}}</p>
+  <p>Time: {{downtime_instance.time}}</p>
+  <p>
+    {{#if downtime_instance.activity}}
+      Activity: {{downtime_instance.activity}}
+    {{else}}
+      No activity recorded.  We assume you were fighting aliens.
+    {{/if}}
+  </p>
+</div>

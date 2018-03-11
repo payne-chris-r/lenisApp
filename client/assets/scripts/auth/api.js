@@ -26,7 +26,6 @@ const signIn = function (data) {
 }
 
 const changePassword = function (data) {
-  console.log('Data in changepassword is ', data)
   return $.ajax({
     url: config.apiOrigin + '/change-password/',
     method: 'PATCH',
