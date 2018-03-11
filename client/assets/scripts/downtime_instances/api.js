@@ -4,6 +4,7 @@ const config = require('../config')
 const store = require('../store')
 
 const createDowntime = function (data) {
+  console.log('Data in api createDowntime is ', data)
   return $.ajax({
     url: config.apiOrigin + '/downtime_instances',
     method: 'POST',
@@ -16,7 +17,7 @@ const createDowntime = function (data) {
 }
 
 const getMyDowntime = function (data) {
-  console.log('Data in getMyDowntime is ', data)
+  console.log('Data in api getMyDowntime is ', data)
   return $.ajax({
     url: config.apiOrigin + '/downtime_instances/' + data.downtime_instance.id,
     method: 'GET',

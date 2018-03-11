@@ -6,6 +6,7 @@ const createDowntimeSuccess = function (data) {
   $('#create-message').text('Created New Downtime!')
   $('#create-message').css('background-color', 'green')
   store.downtime_instance = data.downtime_instance
+  console.log('Data downtime_instance at createDowntimeSuccess is ', data.downtime_instance)
 }
 
 const createDowntimeFailure = function (error) {
@@ -14,13 +15,15 @@ const createDowntimeFailure = function (error) {
   console.log(error)
 }
 
-const getAllDowntimeSuccess = function (data) {
+const getMyDowntimeSuccess = function (data) {
   $('#get-message').text('Downtime Instance Received')
   $('#get-message').css('background-color', 'green')
+  store.downtime_instance = data.downtime_instance
+  console.log('Data downtime-instance at getMyDowntimeSuccess is ', data.downtime_instance)
 }
 
-const getAllDowntimeFailure = function (error) {
-  $('#get-message').text('Error Retrieving Instances')
+const getMyDowntimeFailure = function (error) {
+  $('#get-message').text('Error Retrieving Instance')
   $('#get-message').css('background-color', 'red')
   console.log(error)
 }
@@ -50,8 +53,8 @@ const deleteDowntimeFailure = function (error) {
 module.exports = {
   createDowntimeSuccess,
   createDowntimeFailure,
-  getAllDowntimeSuccess,
-  getAllDowntimeFailure,
+  getMyDowntimeSuccess,
+  getMyDowntimeFailure,
   updateDowntimeSuccess,
   updateDowntimeFailure,
   deleteDowntimeSuccess,

@@ -8,19 +8,20 @@ const onCreateDowntime = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
   api.createDowntime(data)
+  console.log('data proper in events onCreateDowntime is ', data)
     .then(ui.createDowntimeSuccess)
     .then($('#create-downtime input[type="text"]').val(''))
     .catch(ui.createDowntimeFailure)
 }
 
-const onGetAllDowntime = function (event) {
+const onGetMyDowntime = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
-  console.log('data downtime instance in events onGetAllDowntime is ', data.downtime_instance)
+  console.log('data proper in events onGetAllDowntime is ', data)
   api.getMyDowntime(data)
-    .then(ui.getAllDowntimeSuccess)
+    .then(ui.getMyDowntimeSuccess)
     .then($('#get-downtime input[type="text"]').val(''))
-    .catch(ui.getAllDowntimeFailure)
+    .catch(ui.getMyDowntimeFailure)
 }
 
 const onUpdateDowntime = function (event) {
@@ -43,7 +44,7 @@ const onDeleteDowntime = function (event) {
 
 const addHandlers = () => {
   $('#create-downtime').on('submit', onCreateDowntime)
-  $('#get-downtime').on('submit', onGetAllDowntime)
+  $('#get-downtime').on('submit', onGetMyDowntime)
   $('#update-downtime').on('submit', onUpdateDowntime)
   $('#delete-downtime').on('submit', onDeleteDowntime)
 }
