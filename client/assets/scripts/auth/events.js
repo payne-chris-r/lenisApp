@@ -40,6 +40,8 @@ const onSignOut = function (event) {
   event.preventDefault()
   api.signOut()
     .then(ui.signOutSuccess)
+    .then($('#before-signinauth').show())
+    .then($('#after-signinauth').hide())
     .catch(ui.signOutFailure)
 }
 
