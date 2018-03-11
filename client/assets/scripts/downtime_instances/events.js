@@ -16,6 +16,7 @@ const onCreateDowntime = function (event) {
 const onGetAllDowntime = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
+  console.log('data downtime instance in events onGetAllDowntime is ', data.downtime_instance)
   api.getMyDowntime(data)
     .then(ui.getAllDowntimeSuccess)
     .then($('#get-downtime input[type="text"]').val(''))
