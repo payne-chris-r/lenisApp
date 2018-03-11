@@ -1,7 +1,6 @@
 'use strict'
 
 const store = require('../store')
-const showAllDowntimeInstances = require('../templates/downtime_instance-listing.handlebars')
 
 const createDowntimeSuccess = function (data) {
   $('#create-message').text('Created New Downtime!')
@@ -16,24 +15,14 @@ const createDowntimeFailure = function (error) {
 }
 
 const getAllDowntimeSuccess = function (data) {
-  $('#getall-message').text('Downtime Instances Received')
-  $('#getall-message').css('background-color', 'green')
+  $('#get-message').text('Downtime Instance Received')
+  $('#get-message').css('background-color', 'green')
 }
 
 const getAllDowntimeFailure = function (error) {
-  $('#getall-message').text('Error Retrieving Instances')
-  $('#getall-message').css('background-color', 'red')
+  $('#get-message').text('Error Retrieving Instances')
+  $('#get-message').css('background-color', 'red')
   console.log(error)
-}
-
-const getDowntimeInstancesSuccess = (data) => {
-  console.log('Data_downtime_instance in getDowntimeInstancesSuccess is ', data)
-  const downtimeInstancesHtml = showAllDowntimeInstances({ downtime_instance: data.downtime_instance })
-  $('.content').append(downtimeInstancesHtml)
-}
-
-const failure = (error) => {
-  console.error(error)
 }
 
 const updateDowntimeSuccess = function (data) {
@@ -66,7 +55,5 @@ module.exports = {
   updateDowntimeSuccess,
   updateDowntimeFailure,
   deleteDowntimeSuccess,
-  deleteDowntimeFailure,
-  getDowntimeInstancesSuccess,
-  failure
+  deleteDowntimeFailure
 }

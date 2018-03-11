@@ -15,10 +15,9 @@ const createDowntime = function (data) {
   })
 }
 
-const getAllDowntime = function (data) {
-  console.log('getAllDowntime data in api is ', data)
+const getMyDowntime = function (data) {
   return $.ajax({
-    url: config.apiOrigin + '/downtime_instances',
+    url: config.apiOrigin + '/downtime_instances/' + data.downtime_instance.id,
     method: 'GET',
     headers: {
       contentType: 'application/json',
@@ -51,7 +50,7 @@ const deleteInstance = function (data) {
 
 module.exports = {
   createDowntime,
-  getAllDowntime,
+  getMyDowntime,
   updateDowntime,
   deleteInstance
 }

@@ -15,9 +15,10 @@ const onCreateDowntime = function (event) {
 
 const onGetAllDowntime = function (event) {
   event.preventDefault()
-  api.getAllDowntime()
+  const data = getFormFields(this)
+  api.getMyDowntime(data)
     .then(ui.getAllDowntimeSuccess)
-    .then(ui.getDowntimeInstancesSuccess)
+    .then($('#get-downtime input[type="text"]').val(''))
     .catch(ui.getAllDowntimeFailure)
 }
 
@@ -41,7 +42,7 @@ const onDeleteDowntime = function (event) {
 
 const addHandlers = () => {
   $('#create-downtime').on('submit', onCreateDowntime)
-  $('#get-alldowntime').on('submit', onGetAllDowntime)
+  $('#get-downtime').on('submit', onGetAllDowntime)
   $('#update-downtime').on('submit', onUpdateDowntime)
   $('#delete-downtime').on('submit', onDeleteDowntime)
 }
