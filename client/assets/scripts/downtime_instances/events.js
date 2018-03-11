@@ -8,7 +8,6 @@ const onCreateDowntime = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
   api.createDowntime(data)
-  console.log('data proper in events onCreateDowntime is ', data)
     .then(ui.createDowntimeSuccess)
     .then($('#create-downtime input[type="text"]').val(''))
     .catch(ui.createDowntimeFailure)
@@ -17,7 +16,6 @@ const onCreateDowntime = function (event) {
 const onGetMyDowntime = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
-  console.log('data proper in events onGetAllDowntime is ', data)
   api.getMyDowntime(data)
     .then(ui.getMyDowntimeSuccess)
     .then($('#get-downtime input[type="text"]').val(''))
