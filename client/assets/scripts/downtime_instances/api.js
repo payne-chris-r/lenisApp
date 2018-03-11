@@ -15,7 +15,8 @@ const createDowntime = function (data) {
   })
 }
 
-const getAllDowntime = function () {
+const getAllDowntime = function (data) {
+  console.log('getAllDowntime data in api is ', data)
   return $.ajax({
     url: config.apiOrigin + '/downtime_instances',
     method: 'GET',
