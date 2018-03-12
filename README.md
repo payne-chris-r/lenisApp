@@ -1,133 +1,61 @@
-# downTime_client
-The front-end client for the downTime application.
-[Here is a link to the server repo](https://github.com/HTarzwell/downTime)
+[![General Assembly Logo](https://camo.githubusercontent.com/1a91b05b8f4d44b5bbfb83abac2b0996d8e26c92/687474703a2f2f692e696d6775722e636f6d2f6b6538555354712e706e67)](https://generalassemb.ly/education/web-development-immersive)
 
-# Planned Objective
+# browser-template
 
-To build a full-stack application that allows users to record the times where
-they are away from screens, and what they were doing when they put down their
-phones, turned off their TV, or stepped away from their computers.
+A template for starting front-end projects. Webpack for `require` system, build
+pipeline, and development server. Boostrap and Handlebars.js included. No
+front-end frameworks included.
 
-# Technologies Used
+## Installation
 
-## Back-End:
+1.  [Download](../../archive/master.zip) this template.
+1.  Unzip and rename the template directory.
+1.  Empty [`README.md`](README.md) and fill with your own content.
+1.  Replace all instances of `ga-wdi-boston.browser-template` with the name of your project.
+1.  Move into the new project and `git init`
+1.  Add all of the files in your project with the command `git add -A`
+  -   *Note:* THIS IS THE ONLY TIME YOU SHOULD RUN THIS COMMAND
+1.  Commit all of your files with the command `git commit`
+  -   Your commit title should read `Initial commit`
+1.  Install dependencies with `npm install`.
 
-Ruby
-SQL
-Rails
-Heroku
-AJAX
+## Structure
 
-## Front-End:
+Developers should store JavaScript files in [`assets/scripts`](assets/scripts).
+The "manifest" or entry-point is
+[`assets/scripts/index.js`](assets/scripts/index.js). In general, only
+application initialization goes in this file. It's normal for developers to
+start putting all code in this file, but encourage them to break out different
+responsibilities and use the `require` syntax put references where they're
+needed.
 
-HTML5
-CSS3
-JS
-jQuery
-Handlebars
+Developers should set `config.apiOrigins.production` (and
+`config.apiOrigins.development` if it differs from the default).  With
+`apiOrigins` set, developers may rely on `config.apiOrigin` as the base for API
+URLs.
 
-# The Process
+Developers should store styles in [`assets/styles`](assets/styles) and load them
+from [`assets/styles/index.scss`](assets/styles/index.scss).
 
-## Day One
+Developers should use [getFormFields](forms.md) to retrieve form data to send to
+an API.
 
-This was the day I learned how to finally move files around and rename them in
-the terminal.  I was very proud.  I may never go back to GUI!
+To deploy a browser-template based SPA, run `grunt deploy`.
 
-I downloaded both the Rails API template and the Browser template, renamed them,
-and deployed them both to GitHub and my new Heroku account.  This process proved
-to be somewhat tricky, but not impossible.  The clear instructions made it easy!
+## Tasks
 
-I wound up completely stymied for several hours by 1) a db:migrate error that
-proved to be from using date_type as a data type instead of datetime for the
-amount of time the user spends away from their phone and 2) a problem with some
-curl requests that turned out to be due to the unconstructed database and not
-running the rails server.  Correcting these issues made it simpler to catch
-up and figure out what needed to be done next!
+Developers should run these often!
 
-I spruced up, added descriptions to, and pinned the repos, and then changed the
-Application controller inheritance to OpenRead in my downtime_instances controller.
+-   `grunt nag` or just `grunt`: runs code quality analysis tools on your code
+    and complains
+-   `grunt make-standard`: reformats all your code in the JavaScript Standard Style
+-   `grunt <server|serve|s>`: generates bundles, watches, and livereloads
+-   `grunt test`: runs any automated tests, depends on `grunt build`
+-   `grunt build`: place bundled styles and scripts where `index.html` can find
+    them
 
-Curls on the auth file all cleared.  Did not start curling resources yet.
+## [License](LICENSE)
 
-### Outstanding Issues for Day One:
-
--No SQL work
--Heroku knowledge is shaky; downtime isn't showing as one of my account apps
--Client is being deployed to my .io as /downtime/client because of folder
-shenanigans
-
-## Day Two
-
-A snow day!
-
-Discovered that I needed to be testing my resources on curl BEFORE I changed the
-Application controller inheritance, had to change that back.
-
-Excitedly got started on my first new Resource curl script!  CREATE proved to be
-a challenge, but not for the reasons I expected.  Forgot to add commas?  WOW.
-Accidentally added a user_id parameter to my table, thus forcing me to add an
-ownership parameter well before I thought I would need to?  Whoops.
-
-Created all curl requests and ran them with success!  I had fantastic support from
-mentors and teachers.
-
-Began work later in the day on the client app, building the sign-up function from
-scratch.  It was not a challenge once I realized that I had tried to run my
-development tests (which should have been locally hosted) from my production app
-on Heroku.  After that, things progressed very smoothly with building the initial
-client sign-ups and sign-ins.
-
-The change password function was much less smooth.  I had to leave it for the time
-being and move along, along with the sign-out function.
-
-### Outstanding Issues for Day Two:
-
--Change Password client web app function not working
--Sign Out client web app function not working
--Opened issue for change password & also for sign out function
-
-## Day Three
-
-Started the exciting process of debugging my change-password and sign-in, which
-initially seemed to be an issue of user data storage, meaning the problem was most
-likely to be on the back end, which was where I decided to begin my investigation.
-
-Unfortunately my hypothesis proved to be untrue, as the issue was entirely with
-the front end after all: a format change removing the store.user.token requirement
-and my own HTML form fields.  All was resolved, but noon had already passed.
-
-I was able to complete all API calls in both curl and web apps for my downtime
-resources...before learning at the end of the day that we would have to render
-data to users on the front end.
-
-### Outstanding Issues for Day Three
-
--Astonishingly, none!
-
-## Day Four
-
-I started late today and struggled to accomplish much; I discovered that a key
-parameter of the assignment had not been clearly explained to me, nor incorporated
-into the to-do list, so I was left on my own to try and find a way to correct the
-issue of not being able to retrieve actual data with a GET request.  Fortunately,
-the single element I chose to select rather than an entire array means that
-breaking down the problem at hand will be simpler over the next two days.
-
-### Outstanding Issues for Day Four
-
--GET requests to API only return instance IDs, not the instance data
-
-## Day Five
-
-I constructed new divs that allowed me to hide and show appropriate parts of
-my site to the user based on whether they were signed in or not.  A nice, neat
-single-page API!  I also corrected the issue with my individualized GET request
-by discovering that I needed to store and retrieve my data in a different place
-than how I'd been trying to do it.  I'm learning!
-
-Started to study Handlebars more thoroughly; I'm determined to use it in my
-project in some small capacity.  Wound up getting a breakthrough support from
-Keiko and discovered that I can actually use it very effectively to transmit
-server-side data to my users!  I got a mass Get pull working in my API using
-Handlebars with relative ease.  My client side app requires styling, but it is
-now fully functional!  Tomorrow, deployment!  (And then the world...)
+1.  All content is licensed under a CC­BY­NC­SA 4.0 license.
+1.  All software code is licensed under GNU GPLv3. For commercial use or
+    alternative licensing, please contact legal@ga.co.
