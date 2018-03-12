@@ -21,9 +21,11 @@ const signInSuccess = function (data) {
 }
 
 const signInFailure = function (error) {
-  $('#after-signinauth-message').text('Error On Sign-In')
-  $('#after-signinauth-message').css('background-color', 'red')
+  $('#before-signinauth-message').text('Error On Sign-In')
+  $('#before-signinauth-message').css('background-color', 'red')
   console.log(error)
+  $('#after-signinauth').hide()
+  $('#before-signinauth').show()
 }
 
 const changePasswordSuccess = function () {

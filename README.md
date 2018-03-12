@@ -128,4 +128,6 @@ than how I'd been trying to do it.  I'm learning!
 Started to study Handlebars more thoroughly; I'm determined to use it in my
 project in some small capacity.  Wound up getting a breakthrough support from
 Keiko and discovered that I can actually use it very effectively to transmit
-server-side data to my users!
+server-side data to my users!  I got a mass Get pull working in my API using
+Handlebars with relative ease.  My client side app requires styling, but it is
+now fully functional!  Tomorrow, deployment!  (And then the world...)

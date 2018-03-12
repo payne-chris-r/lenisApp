@@ -24,6 +24,8 @@ const onSignIn = function (event) {
     .then($('#before-signinauth').hide())
     .then($('#after-signinauth').show())
     .catch(ui.signInFailure)
+    // .catch($('#after-signinauth').hide())
+    // .catch($('#before-signinauth').show())
 }
 
 const onChangePassword = function (event) {
