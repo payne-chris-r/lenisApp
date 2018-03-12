@@ -2,8 +2,19 @@
 
 <div data-id="{{downtime_instance.id}}">
   <h3>Downtime Instance #{{downtime_instance.id}}</h3>
-  <p>Date: {{downtime_instance.date}}</p>
-  <p>Time: {{downtime_instance.time}}</p>
+  <p>
+    {{#if downtime_instance.activity}}
+      Date: {{downtime_instance.date}}
+    {{else}}
+      No date recorded. You should update this.
+    {{/if}}
+  </p>
+  <p>
+    {{#if downtime_instance.activity}}
+      Time: {{downtime_instance.time}}
+    {{else}}
+      No time recorded. You should update this.
+    {{/if}}
   <p>
     {{#if downtime_instance.activity}}
       Activity: {{downtime_instance.activity}}
